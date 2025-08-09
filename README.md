@@ -106,12 +106,6 @@ docker-compose up --build
 
 ***
 
-## 📝 License
-
-MIT License. All third-party models and libraries must be used in accordance with their respective licenses.
-
-***
-
 ## 🙌 Acknowledgements
 
 - Built with the open-source Llama-3, Mistral, and amazing tools from the open AI developer community.
