@@ -17,6 +17,10 @@ A full-stack platform enabling **AI-powered negotiations** between retailers and
 - **Extensible:** Designed for additional features like analytics, payments, multi-language support, and more.
 
 ***
+## System Architecture
+<img width="701" height="869" alt="image" src="https://github.com/user-attachments/assets/f3a3bdbf-075c-401c-a5b7-d8ed72d62543" />
+
+***
 
 ## 🏗️ Tech Stack
 
