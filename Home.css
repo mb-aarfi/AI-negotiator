@@ -1,0 +1,72 @@
+.FirstBox{
+    margin-top: 120px;
+    width: 1000px;
+    height: 35vh;
+    background-color: #CDC5F7;
+    margin-left: 110px;
+    margin-bottom: 0px;
+}
+
+.FirstBox h1{
+    padding-top: 23px;
+     /* Centering */
+    display: flex;
+    justify-content: center; /* horizontally */
+    align-items: center;     /* vertically */
+    color: #7532C7;
+}
+
+.FirstBox h2{
+    /* Centering */
+    display: flex;
+    justify-content: center; /* horizontally */
+    align-items: center;     /* vertically */
+    color: #7532C7;
+    font-weight: normal;
+    color: black;
+}
+
+.Button{
+    margin-top: 20px;
+    margin-left: 420px;
+    background-color: #7532C7;
+    justify-content: center;
+}
+
+
+.smallBoxes {
+  display: flex;          /* 🔥 keeps them in same row */
+  gap: 37px;              /* spacing between boxes */
+  justify-content: center; /* center them horizontally */
+  margin-top: 80px;
+  margin-left: 108px;
+  margin-bottom: 0px;
+}
+
+.smallBox {
+  background-color: #CDC5F7;
+  height: 160px;
+  width: 270px;          /* fixed width so they align properly */
+  display: flex;
+  flex-direction: column;   /* ✅ stack vertically */
+  justify-content: flex-start;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 0px;
+}
+
+.smallBox h2{
+    color :#7532C7;
+    text-align: center;
+    margin-top: 0px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+}
+
+.smallBox h3{
+    padding-top: 0px;
+    font-size: 16px;
+    color: black;
+    font-weight: normal;
+}
