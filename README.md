@@ -13,10 +13,7 @@ An end‑to‑end system where a Retailer submits a product list and an AI agent
 - Local LLM support via Ollama (no paid API required)
 
 ## Architecture
-- Frontend: React + Vite
-- Backend: FastAPI (Python)
-- DB: SQLite (dev) via SQLAlchemy
-- AI: Local LLM through Ollama Chat API
+<img width="501" height="669" alt="image" src="https://github.com/user-attachments/assets/f3a3bdbf-075c-401c-a5b7-d8ed72d62543" />
 
 ```
 Retailer -> Frontend -> FastAPI -> Ollama (LLM)
@@ -26,7 +23,8 @@ Wholesaler -> Frontend -> FastAPI -> Ollama (LLM)
 
 ## Tech Stack
 - Frontend: React, Vite
-- Backend: FastAPI, SQLAlchemy, Pydantic, Uvicorn
+- Backend: FastAPI (Python), SQLAlchemy, Pydantic, Uvicorn
+- DB: SQLite (dev) via SQLAlchemy
 - Auth: JWT (password hashed with bcrypt via passlib)
 - AI: Ollama (e.g., `llama3.2:3b`)
 
