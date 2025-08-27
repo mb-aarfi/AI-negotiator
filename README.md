@@ -142,5 +142,9 @@ frontend/
 - Email/SMS notifications on finalization
 - Payments/ordering workflow after negotiation
 
+## Contributors
+- Muhammad Baqir (https://github.com/mb-aarfi)
+- Nisha Ahmad (https://github.com/NAhmad231)
+
 ## License
 MIT (or your preferred license).
