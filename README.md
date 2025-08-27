@@ -13,7 +13,9 @@ An end‑to‑end system where a Retailer submits a product list and an AI agent
 - Local LLM support via Ollama (no paid API required)
 
 ## Architecture
-<img width="301" height="469" alt="image" src="https://github.com/user-attachments/assets/f3a3bdbf-075c-401c-a5b7-d8ed72d62543" />
+<p align="center">
+  <img width="301" height="469" src="https://github.com/user-attachments/assets/f3a3bdbf-075c-401c-a5b7-d8ed72d62543" alt="image"/>
+</p>
 
 ```
 Retailer -> Frontend -> FastAPI -> Ollama (LLM)
