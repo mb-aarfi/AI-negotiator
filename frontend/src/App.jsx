@@ -1,27 +1,50 @@
-import React from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import Register from './Register';
+import Login from './Login';
+import ProductListForm from './ProductListForm';
+import WholesalerDashboard from './WholesalerDashboard';
+import Landing from './Landing';
+import Navbar from './Navbar';
 
-function Home() {
-  return (
-    <div style={{ padding: 16 }}>
-      <h1>AI Negotiator</h1>
-      <nav style={{ display: 'flex', gap: 12 }}>
-        <Link to="/retailer">Retailer</Link>
-        <Link to="/wholesaler">Wholesaler</Link>
-        <Link to="/admin">Admin</Link>
-      </nav>
-    </div>
-  );
+function getRoleFromToken(token) {
+  try {
+    const payload = JSON.parse(atob(token.split('.')[1]));
+    return payload.role;
+  } catch {
+    return null;
+  }
 }
 
-export default function App() {
-  return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/retailer" element={<div>Retailer</div>} />
-      <Route path="/wholesaler" element={<div>Wholesaler</div>} />
-      <Route path="/admin" element={<div>Admin</div>} />
-    </Routes>
-  );
+function App() {
+  const [view, setView] = useState('landing'); // 'landing' | 'login' | 'register'
+  const [token, setToken] = useState(localStorage.getItem('token') || '');
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    setToken('');
+    setView('landing');
+  };
+
+  if (token) {
+    const role = getRoleFromToken(token);
+    return (
+      <div style={{ background: '#0b1220', minHeight: '100vh' }}>
+        <Navbar isAuthenticated={true} role={role} onLogoutClick={handleLogout} />
+        {role === 'retailer' ? <ProductListForm token={token} /> : null}
+        {role === 'wholesaler' ? <WholesalerDashboard token={token} /> : null}
+      </div>
+    );
+  }
+
+  if (view === 'landing') {
+    return <Landing onLoginClick={() => setView('login')} onRegisterClick={() => setView('register')} />;
+  }
+
+  if (view === 'login') {
+    return <Login onLogin={setToken} />;
+  }
+
+  return <Register />;
 }
 
+export default App;
