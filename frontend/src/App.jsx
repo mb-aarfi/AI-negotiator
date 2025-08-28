@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Register from './Register';
 import Login from './Login';
-import ProductListForm from './ProductListForm';
+import RetailerDashboard from './RetailerDashboard';
 import WholesalerDashboard from './WholesalerDashboard';
 import Landing from './Landing';
 import Navbar from './Navbar';
@@ -16,7 +16,7 @@ function getRoleFromToken(token) {
 }
 
 function App() {
-  const [view, setView] = useState('landing'); // 'landing' | 'login' | 'register'
+  const [view, setView] = useState('landing'); 
   const [token, setToken] = useState(localStorage.getItem('token') || '');
 
   const handleLogout = () => {
@@ -30,7 +30,7 @@ function App() {
     return (
       <div style={{ background: '#0b1220', minHeight: '100vh' }}>
         <Navbar isAuthenticated={true} role={role} onLogoutClick={handleLogout} />
-        {role === 'retailer' ? <ProductListForm token={token} /> : null}
+        {role === 'retailer' ? <RetailerDashboard token={token} /> : null}
         {role === 'wholesaler' ? <WholesalerDashboard token={token} /> : null}
       </div>
     );

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NegotiationResults from './NegotiationResults';
 
-function ProductListForm({ token }) {
+function RetailerDashboard({ token }) {
   const [products, setProducts] = useState([{ name: '', quantity: 1 }]);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
@@ -97,4 +97,4 @@ function ProductListForm({ token }) {
   );
 }
 
-export default ProductListForm;
+export default RetailerDashboard;
