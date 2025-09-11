@@ -36,21 +36,76 @@ function Login({ onLogin }) {
   };
 
   return (
-    <div style={{ maxWidth: 400, margin: '2rem auto', padding: 20, border: '1px solid #ccc', borderRadius: 8 }}>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>Username:</label><br />
-          <input name="username" value={form.username} onChange={handleChange} required />
-        </div>
-        <div>
-          <label>Password:</label><br />
-          <input name="password" type="password" value={form.password} onChange={handleChange} required />
-        </div>
-        <button type="submit" style={{ marginTop: 12 }}>Login</button>
-      </form>
-      {message && <div style={{ color: 'green', marginTop: 10 }}>{message}</div>}
-      {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
+    <div style={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh',
+      backgroundColor: '#0b1220'  // page gray background
+    }}>
+      <div style={{
+        backgroundColor: '#0b1220',
+        padding: '2rem',
+        borderRadius: '8px',
+        width: '400px',
+        boxShadow: '0 0 10px rgba(234, 230, 230, 0.2)',
+        textAlign: 'center'
+      }}>
+        <h2 style={{ marginBottom: '1.5rem', fontWeight: 'bold' }}>Login Page</h2>
+        <form onSubmit={handleSubmit}>
+          <div style={{ marginBottom: '1rem', textAlign: 'left' }}>
+            <label style={{ fontWeight: '500' }}>Full Name</label>
+            <input
+              type="text"
+              name="username"
+              placeholder="Your First Name"
+              value={form.username}
+              onChange={handleChange}
+              required
+              style={{
+                width: '90%',
+                padding: '10px',
+                marginTop: '6px',
+                border: 'none',
+                borderRadius: '6px',
+                outline: 'none'
+              }}
+            />
+          </div>
+          <div style={{ marginBottom: '1.5rem', textAlign: 'left' }}>
+            <label style={{ fontWeight: '500' }}>Password</label>
+            <input
+              type="password"
+              name="password"
+              placeholder="Choose your password"
+              value={form.password}
+              onChange={handleChange}
+              required
+              style={{
+                width: '90%',
+                padding: '10px',
+                marginTop: '6px',
+                border: 'none',
+                borderRadius: '6px',
+                outline: 'none'
+              }}
+            />
+          </div>
+          <button type="submit" style={{
+            backgroundColor: '#4285f4',
+            color: '#fff',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '6px',
+            cursor: 'pointer',
+            fontWeight: '500'
+          }}>
+            Login
+          </button>
+        </form>
+        {message && <div style={{ color: 'green', marginTop: 10 }}>{message}</div>}
+        {error && <div style={{ color: 'red', marginTop: 10 }}>{error}</div>}
+      </div>
     </div>
   );
 }
