@@ -58,10 +58,6 @@ $env:OLLAMA_BASE_URL="http://127.0.0.1:11434"
 
 python -m uvicorn main:app --reload
 ```
-or
-```
-uvicorn main:app --reload
-```
 FastAPI runs at `http://127.0.0.1:8000`.
 
 ### 4) Frontend setup
