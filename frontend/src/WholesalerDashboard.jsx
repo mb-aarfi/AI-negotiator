@@ -15,7 +15,7 @@ function WholesalerDashboard({ token }) {
     setLoading(true);
     setError('');
     try {
-      const res = await fetch('http://localhost:8000/wholesaler/negotiations', {
+      const res = await fetch('http://127.0.0.1:8000/wholesaler/negotiations', {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
@@ -33,7 +33,7 @@ function WholesalerDashboard({ token }) {
 
   const fetchHistory = async () => {
     try {
-      const res = await fetch('http://localhost:8000/wholesaler/history', {
+      const res = await fetch('http://127.0.0.1:8000/wholesaler/history', {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
@@ -45,7 +45,7 @@ function WholesalerDashboard({ token }) {
 
   const fetchChat = async (sessionId) => {
     try {
-      const res = await fetch(`http://localhost:8000/wholesaler/chat/${sessionId}`, {
+      const res = await fetch(`http://127.0.0.1:8000/wholesaler/chat/${sessionId}`, {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
@@ -61,7 +61,7 @@ function WholesalerDashboard({ token }) {
     if (!text) return;
     setChats(ch => ({ ...ch, [sessionId]: { ...current, input: '' } }));
     try {
-      const res = await fetch(`http://localhost:8000/wholesaler/chat/${sessionId}`, {
+      const res = await fetch(`http://127.0.0.1:8000/wholesaler/chat/${sessionId}`, {
         method: 'POST',
         headers: { 'Authorization': `Bearer ${token}`, 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: text })

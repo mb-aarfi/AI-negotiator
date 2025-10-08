@@ -17,7 +17,7 @@ function Login({ onLogin }) {
       const params = new URLSearchParams();
       params.append('username', form.username);
       params.append('password', form.password);
-      const res = await fetch('http://localhost:8000/login', {
+      const res = await fetch('http://127.0.0.1:8000/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: params.toString(),

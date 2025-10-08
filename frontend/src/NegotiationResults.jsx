@@ -13,7 +13,7 @@ function NegotiationResults({ token }) {
   const fetchResults = async () => {
     setError('');
     try {
-      const res = await fetch('http://localhost:8000/retailer/negotiation_results', {
+      const res = await fetch('http://127.0.0.1:8000/retailer/negotiation_results', {
         headers: { 'Authorization': `Bearer ${token}` },
       });
       const data = await res.json();
