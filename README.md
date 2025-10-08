@@ -2,6 +2,11 @@
 
 An end‑to‑end system where a Retailer submits a product list and an AI agent negotiates prices with multiple Wholesalers individually over chat, collects final prices, and presents the best deals back to the Retailer.
 
+## Working Demo
+
+https://github.com/user-attachments/assets/a00f1875-c7b4-4a48-9dda-a7d0d4eb3e89
+
+
 ## Features
 - AI‑driven negotiation chats (per wholesaler)
 - Multi‑wholesaler parallel sessions
@@ -13,9 +18,10 @@ An end‑to‑end system where a Retailer submits a product list and an AI agent
 - Local LLM support via Ollama (no paid API required)
 
 ## Architecture
-<p align="center">
-  <img width="301" height="469" src="https://github.com/user-attachments/assets/f3a3bdbf-075c-401c-a5b7-d8ed72d62543" alt="image"/>
-</p>
+- Frontend: React + Vite
+- Backend: FastAPI (Python)
+- DB: SQLite (dev) via SQLAlchemy
+- AI: Local LLM through Ollama Chat API
 
 ```
 Retailer -> Frontend -> FastAPI -> Ollama (LLM)
@@ -25,8 +31,7 @@ Wholesaler -> Frontend -> FastAPI -> Ollama (LLM)
 
 ## Tech Stack
 - Frontend: React, Vite
-- Backend: FastAPI (Python), SQLAlchemy, Pydantic, Uvicorn
-- DB: SQLite (dev) via SQLAlchemy
+- Backend: FastAPI, SQLAlchemy, Pydantic, Uvicorn
 - Auth: JWT (password hashed with bcrypt via passlib)
 - AI: Ollama (e.g., `llama3.2:3b`)
 
@@ -55,7 +60,8 @@ Create `backend/main.py` already present in repo. Run dev server:
 # optional env (choose the model you pulled in Ollama)
 $env:OLLAMA_MODEL="llama3.2:3b"
 $env:OLLAMA_BASE_URL="http://127.0.0.1:11434"
-uvicorn main:app --reload
+
+python -m uvicorn main:app --reload
 ```
 FastAPI runs at `http://127.0.0.1:8000`.
 
@@ -129,22 +135,11 @@ frontend/
     assets/logo_nego.*
 ```
 
-## Troubleshooting
-- Backend error: `Form data requires "python-multipart"` → install it or ensure login uses `application/x-www-form-urlencoded` (already configured).
-- `httpx` not found → `pip install httpx` in the backend venv.
-- Ollama not reachable → ensure it’s running and your model is pulled; verify with `/api/tags`.
-- CORS blocked → CORS middleware is enabled in `main.py` for dev.
-- Reset sessions (keep users): run a small SQLite cleanup script to delete from `offers`, `chat_messages`, `wholesaler_negotiations`, `wholesaler_history`, `negotiation_sessions`, and `product_lists`.
-
 ## Roadmap
 - WebSocket push notifications for instant retailer updates
 - Admin dashboard and analytics
 - Email/SMS notifications on finalization
 - Payments/ordering workflow after negotiation
-
-## Contributors
-- Muhammad Baqir (https://github.com/mb-aarfi)
-- Nisha Ahmad (https://github.com/NAhmad231)
 
 ## License
 MIT (or your preferred license).
